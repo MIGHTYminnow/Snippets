@@ -1,0 +1,12 @@
+/** 
+ * External Links
+ * 
+ * This currently excludes links that are on a subdomain that matches the main domain from being 
+ * marked as external links but it does this by working backwards from the TLD ending, so all TLD 
+ * endings with a single dot will work fine, like .com, .net, etc. but this will need modification 
+ * to work with TLD endings with multiple dots like .co.uk 
+ */
+var h = window.location.host.toLowerCase();
+var a = h.split('.');
+var thisDomain = ( a[ a.length - 2 ] + '.' + a[ a.length - 1 ] ); 
+$('[href^="http"]').not( '[href*="' + thisDomain + '"]' ).addClass('external-link').attr("target", "_blank");
