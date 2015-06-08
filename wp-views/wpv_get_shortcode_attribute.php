@@ -6,10 +6,10 @@
  * @return    mixed             The shortcode attributes value.
  */
 function wpv_get_shortcode_attribute( $att = '', $query_type = '', $object = '' ) {
-    global $WP_Views;
-    $attributes = reset( $WP_Views->view_shortcode_attributes );
+	global $WP_Views;
+	$attributes = reset( $WP_Views->view_shortcode_attributes );
 
-    return isset( $attributes[ $att ] ) ? $attributes[ $att ] : '';
+	return isset( $attributes[ $att ] ) ? $attributes[ $att ] : '';
 }
 
 add_shortcode( 'wpv_get_shortcode_attribute', 'wpv_get_shortcode_attribute_shortcode' );
